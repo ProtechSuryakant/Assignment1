@@ -136,12 +136,13 @@ class _LoginState extends State<Login> {
                               height: 20,
                             ),
                             Container(
-                              height: 50,
+                              height: 68,
                               margin:
                                   const EdgeInsets.only(left: 20, right: 20),
                               child: TextFormField(
                                 // controller: _passwordController,
                                 obscureText: _isObscure,
+                                maxLength: 8,
                                 validator: (value) {
                                   if (value!.isEmpty || value.length == 8) {
                                     return 'Please enter your password';

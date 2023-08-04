@@ -22,14 +22,14 @@ final List<Item> itemsData = [
     discount: '-55%',
   ),
   Item(
-    image: 'assets/images/shirt3.jpg',
+    image: 'assets/images/shirt3.png',
     title: 'Cotton Men Shirt',
     description: 'The shirt can be worn for both formal and casual occasions.',
     price: '550',
     discount: '-20%',
   ),
   Item(
-    image: 'assets/images/mobile.jpg',
+    image: 'assets/images/iPhone11.png',
     title: 'iPhone 11',
     description: 'Iphone 11 with 256 Rom',
     price: '32399',

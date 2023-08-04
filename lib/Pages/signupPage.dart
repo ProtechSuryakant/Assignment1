@@ -145,7 +145,6 @@ class _SignUpState extends State<SignUp> {
                               margin:
                                   const EdgeInsets.only(left: 20, right: 20),
                               child: TextFormField(
-                                // controller: _userNameController,
                                 keyboardType: TextInputType.emailAddress,
                                 validator: (value) {
                                   if (value!.isEmpty || !value.contains("@")) {
@@ -190,7 +189,7 @@ class _SignUpState extends State<SignUp> {
                               margin:
                                   const EdgeInsets.only(left: 20, right: 20),
                               child: TextFormField(
-                                // controller: _passwordController,
+                                maxLength: 8,
                                 obscureText: _isObscure,
                                 validator: (value) {
                                   if (value!.isEmpty || value.length == 8) {
@@ -202,6 +201,7 @@ class _SignUpState extends State<SignUp> {
                                 style:
                                     const TextStyle(color: Color(0xFF5C6098)),
                                 decoration: InputDecoration(
+                                  counterText: '',
                                   label: const Text('Password'),
                                   labelStyle:
                                       const TextStyle(color: Color(0xFF5C6098)),
@@ -253,6 +253,8 @@ class _SignUpState extends State<SignUp> {
                               margin:
                                   const EdgeInsets.only(left: 20, right: 20),
                               child: TextFormField(
+                                maxLength: 8,
+
                                 // controller: _passwordController,
                                 obscureText: _isObscure,
                                 validator: (value) {
@@ -265,6 +267,7 @@ class _SignUpState extends State<SignUp> {
                                 style:
                                     const TextStyle(color: Color(0xFF5C6098)),
                                 decoration: InputDecoration(
+                                  counterText: '',
                                   label: const Text('Confirm Password'),
                                   labelStyle:
                                       const TextStyle(color: Color(0xFF5C6098)),

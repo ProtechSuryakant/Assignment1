@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/model/Item.dart';
 import 'package:e_commerce_app/model/sponsored.dart';
 import 'package:flutter/material.dart';
 

@@ -1,10 +1,9 @@
-import 'package:e_commerce_app/widgets/HomeAppBar.dart';
 import 'package:e_commerce_app/widgets/ItemsWidget.dart';
-import 'package:e_commerce_app/widgets/Products.dart';
-import 'package:e_commerce_app/widgets/buildCardCategory.dart';
+import 'package:e_commerce_app/widgets/NavBar.dart';
 import 'package:e_commerce_app/widgets/contentSlider.dart';
 import 'package:e_commerce_app/widgets/sponsoredData.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../widgets/CategoryWidgets.dart';
 
@@ -17,37 +16,65 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int activeIndex = 0;
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
+        drawer: const NavBar(),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: const Row(children: [
-            Icon(Icons.sort, size: 27, color: Color(0xFF293265)),
-            Spacer(),
-            Text(
+          title: Row(children: [
+            IconButton(
+                onPressed: () {
+                  _scaffoldKey.currentState?.openDrawer();
+                },
+                icon:
+                    const Icon(Icons.sort, size: 27, color: Color(0xFF293265))),
+            const Spacer(),
+            const Text(
               'India Market',
               style: TextStyle(color: Color(0xFF293265)),
             ),
-            Spacer(),
-            Image(
-              image: AssetImage("assets/icons/user.png"),
-              height: 25,
-              width: 25,
-              color: Color(0xFF293265),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Badge(
-              label: Text('1'),
-              child: Image(
-                image: AssetImage("assets/icons/cart.png"),
+            const Spacer(),
+            InkWell(
+              onTap: () => Fluttertoast.showToast(
+                msg: "Profile",
+                gravity: ToastGravity.BOTTOM,
+                toastLength: Toast.LENGTH_SHORT,
+                fontSize: 16,
+                backgroundColor: const Color(0xFF5C6098),
+                textColor: Colors.white,
+              ),
+              child: const Image(
+                image: AssetImage("assets/icons/user.png"),
                 height: 25,
                 width: 25,
                 color: Color(0xFF293265),
+              ),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            InkWell(
+              onTap: () => Fluttertoast.showToast(
+                msg: "Cart",
+                gravity: ToastGravity.BOTTOM,
+                toastLength: Toast.LENGTH_SHORT,
+                fontSize: 16,
+                backgroundColor: const Color(0xFF5C6098),
+                textColor: Colors.white,
+              ),
+              child: const Badge(
+                label: Text('1'),
+                child: Image(
+                  image: AssetImage("assets/icons/cart.png"),
+                  height: 25,
+                  width: 25,
+                  color: Color(0xFF293265),
+                ),
               ),
             )
           ]),

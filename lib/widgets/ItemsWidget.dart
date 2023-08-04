@@ -6,9 +6,11 @@ class ItemsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double itemWidth = MediaQuery.of(context).size.width * 0.45;
+
     return GridView.count(
       crossAxisCount: 2,
-      childAspectRatio: 0.57,
+      childAspectRatio: itemWidth / (itemWidth + 150),
       shrinkWrap: true,
       children: itemsData.map((item) {
         return Card(
